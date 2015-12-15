@@ -1,0 +1,7 @@
+- In app.py, some of the routes have urls that don’t match the respective filenames (i.e. /user for myprofile.html)
+- Not enough comments overall  understood the methods and what they were supposed to do, but it took longer to get it
+- There are two style.css files, each in different directories. They have slightly different code that could’ve easily been combined into two files
+- There are separate files for registering new users and generally logging in, but the register.html file isn’t used. And, if it was at all, it wouldn’t need to be—they could just connect the registering a new user function to the register button instead of having a fully separate file
+- I don’t really understand the purpose of the newlook files…can’t you just change those elements in the original file? Are they even called at all? Will check.
+- Good organization! 
+- Works pretty well, with a lot of cool added features

@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Blag Blog Page</title>
+    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="banner">
+      </div>
+      <div id="navcontainer">
+	<ul id="navlist">
+	  {% if session.has_key('user') %}
+	  {% block blogpage %}
+	  <li><a href="{{url_for('home')}}">Blag Blogpage</a></li>
+	  {% endblock %}
+	  {% block newpost %}
+	  <li><a href="{{url_for('makepost')}}">New Post</a></li>
+	  {% endblock %}
+	  <li><a href="{{url_for('logout')}}">Logout</a></li>
+	  {% block profile %}
+	  <li><a href="{{url_for('user', username=session['user'])}}">Profile</a></li>
+	  {% endblock %}
+	  {% block about %}
+	  <li><a href="{{url_for('about')}}">About</a></li>
+	  {% endblock %}
+	  {% else %}
+	  {% block login %}
+	  <li><a href="{{url_for('login')}}">Login</a></li>
+	  {% endblock %}
+	  {% endif %}
+	</ul>
+      </div>
+      <div id="content">
+	<h2>Blag! The new way to blog.</h2>
+	<br/>
+	{% block error %} {% endblock %}
+
+	{% if session.has_key('user') %}
+	<p> Hello <b>{{session['user']}}</b>!</p>
+	{% else %}
+	<p> You are not logged in </p>
+	{% endif %}
+	
+	{% block content %} {% endblock %}
+
+  </body>
+</html>
